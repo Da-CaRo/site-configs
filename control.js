@@ -1,12 +1,12 @@
 // control.js
-(async function() {
+(async function () {
     // 1. Buscamos el script que nos está ejecutando para leer su "data-web"
     const selfScript = document.currentScript;
     const webId = selfScript.getAttribute('data-web');
-    
-    // 2. URL de tu JSON de configuración (usa el tuyo)
-    const JSON_URL = 'https://cdn.jsdelivr.net/gh/Da-CaRo/site-configs@main/sites.json?t=' + Date.now();
 
+    // 2. URL de tu JSON de configuración (usa el tuyo)
+    //const JSON_URL = 'https://cdn.jsdelivr.net/gh/Da-CaRo/site-configs@main/sites.json?t=' + Date.now();
+    const JSON_URL = 'https://raw.githubusercontent.com/Da-CaRo/site-configs/main/mantenimiento.json?nocache=' + new Date().getTime();
     try {
         const res = await fetch(JSON_URL);
         const config = await res.json();
@@ -14,7 +14,7 @@
         // 3. Si esta web específica está en mantenimiento...
         if (config[webId] && config[webId].maintenance) {
             window.stop(); // Detiene la carga del resto de la web
-            
+
             document.documentElement.innerHTML = `
                 <style>
                     body { margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: system-ui; background: #f4f4f4; color: #333; }

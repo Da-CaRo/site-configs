@@ -5,7 +5,7 @@
     const webId = selfScript.getAttribute('data-web');
     
     // 2. URL de tu JSON de configuración (usa el tuyo)
-    const JSON_URL = 'https://raw.githubusercontent.com/Da-CaRo/site-configs/main/sites.json?t=' + Date.now();
+    const JSON_URL = 'https://cdn.jsdelivr.net/gh/usuario/repo@main/control.js?t=' + Date.now();
 
     try {
         const res = await fetch(JSON_URL);

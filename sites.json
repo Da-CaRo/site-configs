@@ -20,7 +20,7 @@
     "msg": "Estamos mejorando la web."
   },
   "prisma": {
-    "maintenance": true,
+    "maintenance": false,
     "msg": "Estamos mejorando la web."
   }
 }

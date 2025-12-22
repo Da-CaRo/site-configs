@@ -6,7 +6,7 @@
 
     // 2. URL de tu JSON de configuración (usa el tuyo)
     //const JSON_URL = 'https://cdn.jsdelivr.net/gh/Da-CaRo/site-configs@main/sites.json?t=' + Date.now();
-    const JSON_URL = 'https://raw.githubusercontent.com/Da-CaRo/site-configs/main/mantenimiento.json?nocache=' + new Date().getTime();
+    const JSON_URL = 'https://raw.githubusercontent.com/Da-CaRo/site-configs/main/sites.json?nocache=' + new Date().getTime();
     try {
         const res = await fetch(JSON_URL);
         const config = await res.json();

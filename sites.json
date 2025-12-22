@@ -1,0 +1,26 @@
+{
+  "labs": {
+    "maintenance": false,
+    "msg": "Estamos mejorando la web."
+  },
+  "setup-and-play": {
+    "maintenance": false,
+    "msg": "Estamos mejorando la web."
+  },
+  "agente-33": {
+    "maintenance": false,
+    "msg": "Estamos mejorando la web."
+  },
+  "el-impostor": {
+    "maintenance": false,
+    "msg": "Estamos mejorando la web."
+  },
+  "tres-pistas": {
+    "maintenance": false,
+    "msg": "Estamos mejorando la web."
+  },
+  "prisma": {
+    "maintenance": false,
+    "msg": "Estamos mejorando la web."
+  }
+}

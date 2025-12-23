@@ -1,4 +1,8 @@
 {
+  "test": {
+    "maintenance": true,
+    "msg": "23-12-2025_17:07"
+  },
   "labs": {
     "maintenance": false,
     "msg": "Estamos mejorando la web."
@@ -21,7 +25,10 @@
   },
   "prisma": {
     "maintenance": false,
-    "msg": "Estamos mejorando la web.",
-    "test":"23-12-2025_17:07"
+    "msg": "Estamos mejorando la web."
+  },
+  "loot-and-run": {
+    "maintenance": false,
+    "msg": "Estamos mejorando la web."
   }
 }

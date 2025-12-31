@@ -8,11 +8,11 @@
     "msg": "Estamos mejorando la web."
   },
   "setup-and-play": {
-    "maintenance": false,
+    "maintenance": true,
     "msg": "Estamos mejorando la web."
   },
   "agente-33": {
-    "maintenance": false,
+    "maintenance": true,
     "msg": "Estamos mejorando la web."
   },
   "el-impostor": {
@@ -20,15 +20,15 @@
     "msg": "Estamos mejorando la web."
   },
   "tres-pistas": {
-    "maintenance": false,
+    "maintenance": true,
     "msg": "Estamos mejorando la web."
   },
   "prisma": {
-    "maintenance": false,
+    "maintenance": true,
     "msg": "Estamos mejorando la web."
   },
   "loot-and-run": {
-    "maintenance": false,
+    "maintenance": true,
     "msg": "Estamos mejorando la web."
   }
 }

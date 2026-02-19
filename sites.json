@@ -16,7 +16,7 @@
     "msg": "Estamos mejorando la web."
   },
   "el-impostor": {
-    "maintenance": false,
+    "maintenance": true,
     "msg": "Estamos mejorando la web."
   },
   "tres-pistas": {

@@ -4,14 +4,14 @@
     const selfScript = document.currentScript;
     const webId = selfScript.getAttribute('data-web');
 
-    // 2. URL de tu JSON de configuración (usa el tuyo)
-    //const JSON_URL = 'https://cdn.jsdelivr.net/gh/Da-CaRo/site-configs@main/sites.json?t=' + Date.now();
-    //const JSON_URL = 'https://raw.githubusercontent.com/Da-CaRo/site-configs/main/sites.json?nocache=' + new Date().getTime();
-    const JSON_URL = 'https://raw.githubusercontent.com/Da-CaRo/site-configs/refs/heads/main/sites.json'
+    // 2. URL de tu JSON de configuración
+    const JSON_URL = 'https://api.npoint.io/03144058aa3a6263fb8c'
 
     try {
-        const res = await fetch(JSON_URL);
+        const res = await fetch(JSON_URL, { cache: "no-store" });
         const config = await res.json();
+
+        console.log(config[webId])
 
         // 3. Si esta web específica está en mantenimiento...
         if (config[webId] && config[webId].maintenance) {
@@ -19,13 +19,14 @@
 
             document.documentElement.innerHTML = `
                 <style>
-                    body { margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: system-ui; background: #f4f4f4; color: #333; }
-                    .card { text-align: center; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; }
-                    h1 { color: #e74c3c; }
+                    body { margin:0; background:#1a1a1a; color:white; font-family:sans-serif; }
+                    .m-container { height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; }
+                    h1 { font-size: 2.5rem; margin: 10px 0; }
                 </style>
-                <div class="card">
-                    <h1>Mantenimiento</h1>
-                    <p>${config[webId].msg}</p>
+                <div class="m-container">
+                    <div style="font-size:4rem;">🚧</div>
+                    <h1>Modo Mantenimiento</h1>
+                    <p style="font-size:1.2rem; color:#ccc; max-width:600px;">${config[webId].msg}</p>
                 </div>
             `;
         }

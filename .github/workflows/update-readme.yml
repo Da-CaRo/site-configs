@@ -1,7 +1,7 @@
 name: Update README with JSON
 on:
   schedule:
-    - cron: '*/30 * * * *' # Se ejecuta cada 30 min
+    - cron: '0 0 * * 1' # Runs at 00:00, only on Monday
   workflow_dispatch:      # Permite ejecutarlo manualmente
 
 permissions:
@@ -25,10 +25,19 @@ jobs:
           # 3. Insertar el JSON entre las marcas del README
           perl -i -0777 -pe "s/().*()/\${1}\n\`\`\`json\n${JSON_DATA}\n\`\`\`\n\${2}/s" README.md
 
-      - name: Commit changes
+      - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          
           git add README.md
-          # Solo hace commit si hay cambios detectados
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update JSON in README" && git push)
+          
+          # Solo procedemos si hay cambios reales
+          if ! git diff --cached --exit-code; then
+            git commit -m "Update JSON in README"
+            # El rebase soluciona el error de "remote contains work that you do not have locally"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "No hay cambios para subir."
+          fi

@@ -4,6 +4,9 @@ on:
     - cron: '*/30 * * * *' # Se ejecuta cada 30 min
   workflow_dispatch:      # Permite ejecutarlo manualmente
 
+permissions:
+  contents: write  # Esto le da permiso explícito al bot para escribir y hacer push
+
 jobs:
   build:
     runs-on: ubuntu-latest

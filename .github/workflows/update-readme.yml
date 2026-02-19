@@ -17,7 +17,7 @@ jobs:
       - name: Fetch JSON and Update README
         run: |
           # 1. Descargar el JSON de npoint
-          JSON_DATA=$(curl -s https://api.npoint.io/tu_id_de_npoint)
+          JSON_DATA=$(curl -s https://api.npoint.io/03144058aa3a6263fb8c)
           
           # 2. Formatear el JSON para que se vea bonito (opcional, requiere jq)
           # Si no quieres formatearlo, usa solo JSON_DATA

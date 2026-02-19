@@ -1,0 +1,31 @@
+name: Update README with JSON
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Se ejecuta cada 30 min
+  workflow_dispatch:      # Permite ejecutarlo manualmente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Fetch JSON and Update README
+        run: |
+          # 1. Descargar el JSON de npoint
+          JSON_DATA=$(curl -s https://api.npoint.io/tu_id_de_npoint)
+          
+          # 2. Formatear el JSON para que se vea bonito (opcional, requiere jq)
+          # Si no quieres formatearlo, usa solo JSON_DATA
+          
+          # 3. Insertar el JSON entre las marcas del README
+          perl -i -0777 -pe "s/().*()/\${1}\n\`\`\`json\n${JSON_DATA}\n\`\`\`\n\${2}/s" README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "Update JSON in README" || exit 0
+          git push
